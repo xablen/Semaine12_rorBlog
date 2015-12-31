@@ -1,11 +1,10 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
-    @comments = Comment.all
+    @articles = Article.page(params[:page]).per(10)
   end
 
   def show
     @article = Article.find(params[:id])
-    @comments = Comment.all
+    @comments = Comment.page(params[:page]).per(5)
   end
 end
