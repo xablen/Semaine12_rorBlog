@@ -1,0 +1,9 @@
+ <% @comments.each do |comment| %>
+ <p>
+    <a href="/articles/<%= article.id %>">
+      <% if comment.content %>
+        <%= comment.author %> : <%= comment.content %>
+    <% end %>
+    </a>
+ </p>
+ <% end %>

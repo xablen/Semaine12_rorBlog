@@ -1,0 +1,24 @@
+<h1>Article « <%= @article.title %> »</h1>
+
+<p><%= @article.content %></p>
+
+<%= form_tag "/articles/#{@article.id}", method: "post" do %>
+  <input type="text" name="author" placeholder="Auteur">
+  <input type="text" name="content" placeholder="Commentaire"></br>
+  </br>
+  <input type="submit" value="Ajouter un commentaire">
+  </br><% end %>
+
+  </br>
+
+  <h1>Liste des commentaires</h1>
+
+   <% @comments.each do |comment| %>
+ <p>
+      <% if comment.content && (comment.article_id == @article.id) %>
+        <%= comment.author %> : <%= comment.content %>
+    <% end %>
+ </p>
+ <% end %>
+
+<p><a href="/">Retour à la liste des articles</a></p>
