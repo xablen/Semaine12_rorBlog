@@ -11,12 +11,12 @@
 
   </br>
 
-  <h1>Liste des commentaires</h1>
+  <h2>Liste des commentaires</h2>
 
    <% @comments.each do |comment| %>
  <p>
       <% if comment.content && (comment.article_id == @article.id) %>
-        <%= comment.author %> : <%= comment.content %>
+        <b><%= comment.author %> :</b> <%= comment.content %>
     <% end %>
  </p>
  <% end %>
